@@ -229,11 +229,11 @@ const projectsData = [
     grad: 'linear-gradient(140deg,#0d1f3c,#1a3a6b)'
   },
   {
-    name: 'Project SAFE: Literasi Digital',
-    desc: 'Aplikasi edukasi interaktif literasi digital dengan sistem kuis & sertifikasi.',
+    name: 'Aplikasi Absen Digital Perusahaan Tambang',
+    desc: 'Aplikasi absensi yang berbasis AI & data real time .',
     tags: ['Flutter', 'Firebase', 'UI/UX'],
     filter: 'flutter',
-    link: '#',
+    link: 'https://github.com/aviszola/OTW_UKL-Avis-',
     icon: 'fas fa-shield-alt',
     grad: 'linear-gradient(140deg,#112244,#1b3a6b)'
   },
@@ -242,7 +242,7 @@ const projectsData = [
     desc: 'Website portfolio interaktif dengan multi-theme dan animasi premium.',
     tags: ['HTML', 'CSS', 'JS'],
     filter: 'web',
-    link: '#',
+    link: 'https://github.com/aviszola/AvisPorto',
     icon: 'fas fa-code',
     grad: 'linear-gradient(140deg,#162a52,#2e5299)'
   }
