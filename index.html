@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Avis Zola Raditya Kurniawan | Mobile Developer</title>
+  <meta name="description" content="Portfolio Avis Zola Raditya Kurniawan - Mobile Developer & RPL Student">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- UPDATED: Cormorant Garamond for display elegance + DM Sans for body -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js" defer></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- NEW: Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">AZ<span>.</span></div>
+      <div class="preloader-track">
+        <div class="preloader-fill" id="preloaderFill"></div>
+      </div>
+      <p class="preloader-hint">Loading portfolio…</p>
+    </div>
+  </div>
+
+  <!-- NEW: Page transition overlay -->
+  <div id="page-transition" class="page-transition"></div>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- UPDATED: Floating controls (theme + back-to-top) -->
+  <div class="floating-controls">
+    <!-- NEW: 3-mode theme cycle button -->
+    <button id="theme-toggle" class="ctrl-btn" aria-label="Toggle theme" title="Cycle theme">
+      <i class="fas fa-moon"></i>
+    </button>
+    <button id="back-to-top" class="ctrl-btn" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </div>
+
+  <!-- UPDATED: Navbar with glassmorphism -->
+  <nav id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="logo">Avis<span class="logo-accent"> Zola</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#certificates" class="nav-link">Certificates</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <!-- NEW: inline theme switcher pills for desktop -->
+      <div class="nav-theme-pills">
+        <button class="t-pill active" data-t="light" title="Light"><i class="fas fa-sun"></i></button>
+        <button class="t-pill" data-t="dark" title="Dark"><i class="fas fa-moon"></i></button>
+        <button class="t-pill" data-t="elegant" title="Elegant"><i class="fas fa-gem"></i></button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- UPDATED: Smooth slide-down mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home" class="mob-link">Home</a>
+      <a href="#about" class="mob-link">About</a>
+      <a href="#projects" class="mob-link">Projects</a>
+      <a href="#certificates" class="mob-link">Certificates</a>
+      <a href="#contact" class="mob-link">Contact</a>
+      <!-- NEW: theme row inside mobile menu -->
+      <div class="mob-theme-row">
+        <button class="mob-t active" data-t="light"><i class="fas fa-sun"></i> Light</button>
+        <button class="mob-t" data-t="dark"><i class="fas fa-moon"></i> Dark</button>
+        <button class="mob-t" data-t="elegant"><i class="fas fa-gem"></i> Elegant</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ══════════ HERO ══════════ -->
+    <section id="home" class="hero">
+      <!-- NEW: decorative animated mesh blobs -->
+      <div class="hero-mesh" aria-hidden="true">
+        <div class="mesh-blob b1"></div>
+        <div class="mesh-blob b2"></div>
+        <div class="mesh-blob b3"></div>
+      </div>
+
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge"><span class="dot"></span> Available for opportunities</div>
+
+          <h1 class="hero-title">
+            Avis Zola<br>
+            <em class="accent">Raditya K</em>
+          </h1>
+
+          <!-- Typing text with cursor blink -->
+          <div class="hero-role">
+            <span id="typed-text"></span><span class="type-cursor" aria-hidden="true">|</span>
+          </div>
+
+          <p class="hero-desc">
+            Saya merancang dan membangun aplikasi mobile yang elegan, responsif, dan berdampak nyata.
+            Sebagai spesialis Flutter, saya bersemangat menghadirkan pengalaman pengguna yang mulus dan berkesan mulai
+            dari baris kode pertama hingga aplikasi siap digunakan di dunia nyata.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fas fa-code-branch"></i> Lihat Project
+            </a>
+            <a href="#contact" class="btn btn-ghost">
+              <i class="fas fa-paper-plane"></i> Hubungi Saya
+            </a>
+          </div>
+
+          <!-- UPDATED: stats with separator & animated counter -->
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-val"><span class="stat-number" data-target="12">0</span><span class="stat-plus">+</span>
+              </div>
+              <p>Projects</p>
+            </div>
+            <div class="stat-sep"></div>
+            <div class="stat">
+              <div class="stat-val"><span class="stat-number" data-target="6">0</span><span class="stat-plus">+</span>
+              </div>
+              <p>Certificates</p>
+            </div>
+            <div class="stat-sep"></div>
+            <div class="stat">
+              <div class="stat-val"><span class="stat-number" data-target="3">0</span><span class="stat-plus">+</span>
+              </div>
+              <p>Years Exp.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- UPDATED: avatar with concentric rings and floating pills -->
+        <div class="hero-visual">
+          <div class="avatar-scene">
+            <div class="avatar-ring r1"></div>
+            <div class="avatar-ring r2"></div>
+            <div class="avatar-wrapper" id="heroAvatar">
+              <div class="avatar">
+                <img src="images/profil.jpg" alt="Avis Zola"
+                  onerror="this.src='https://via.placeholder.com/320?text=AZ'">
+              </div>
+              <div class="fp fp1"><i class="fab fa-flutter"></i> Flutter</div>
+              <div class="fp fp2"><i class="fas fa-fire"></i> 10+ Projects</div>
+              <div class="fp fp3"><i class="fab fa-python"></i> Python</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEW: animated scroll cue -->
+      <div class="scroll-cue" aria-hidden="true">
+        <div class="sc-mouse">
+          <div class="sc-wheel"></div>
+        </div>
+        <span>scroll</span>
+      </div>
+    </section>
+
+    <!-- ══════════ ABOUT ══════════ -->
+    <section id="about" class="section about">
+      <div class="container">
+        <div class="about-grid">
+
+          <!-- UPDATED: framed image with decorative accents -->
+          <div class="about-image reveal">
+            <div class="img-frame">
+              <div class="img-box">
+                <img src="images/profil.jpg" alt="About Avis Zola"
+                  onerror="this.src='https://via.placeholder.com/400x500?text=About'">
+              </div>
+              <div class="frame-tl"></div>
+              <div class="frame-br"></div>
+            </div>
+          </div>
+
+          <div class="about-text reveal">
+            <span class="section-label">Tentang Saya</span>
+            <h2 class="section-title">Semangat Kode,<br><em>Visi Jelas</em></h2>
+            <div class="divider"></div>
+            <p>Halo! Saya <strong>Avis Zola Raditya Kurniawan</strong>, siswa aktif jurusan
+              <strong>Rekayasa Perangkat Lunak (RPL)</strong> di <strong>SMK Telkom Malang</strong> yang memiliki minat
+              besar dalam
+              pengembangan aplikasi mobile. Saya percaya teknologi yang baik bukan hanya soal fungsi,
+              tapi juga tentang pengalaman pengguna yang bermakna dan intuitif.
+            </p>
+
+            <p>Sejak pertama belajar coding, saya jatuh cinta pada Flutter karena kemampuannya
+              membangun UI yang indah, responsif, dan lintas platform hanya dengan satu basis kode.
+              Saya terus mengasah kemampuan melalui proyek nyata, lomba, dan pelatihan intensif
+              untuk meningkatkan skill teknis serta pemahaman UI/UX.</p>
+
+            <p>Selain itu, saya juga aktif dalam organisasi <strong>MPK (Majelis Perwakilan Kelas)</strong>
+              yang membantu saya mengembangkan kemampuan kepemimpinan, komunikasi, dan kerja tim.
+              Tujuan saya adalah menjadi pengembang mobile profesional yang mampu memecahkan masalah
+              nyata dan memberi dampak positif.</p>
+
+            <!-- UPDATED: skill chips with icons -->
+            <div class="skills-block">
+              <h4 class="skills-label">Tech Stack &amp; Tools</h4>
+              <div class="skill-chips">
+                <span><i class="fab fa-flutter"></i> Flutter</span>
+                <span>Dart</span>
+                <span><i class="fab fa-python"></i> Python</span>
+                <span><i class="fas fa-fire"></i> Firebase</span>
+                <span>REST API</span>
+                <span><i class="fab fa-git-alt"></i> Git</span>
+                <span>Figma</span>
+                <span>Postman</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ PROJECTS ══════════ -->
+    <section id="projects" class="section projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Portfolio</span>
+          <h2 class="section-title">Project Pilihan</h2>
+          <div class="divider"></div>
+        </div>
+        <!-- UPDATED: filter pill row -->
+        <div class="filter-row reveal">
+          <button class="filter-btn active" data-filter="all">Semua</button>
+          <button class="filter-btn" data-filter="flutter">Flutter</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="ai">AI/ML</button>
+        </div>
+        <div class="projects-grid" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ══════════ CERTIFICATES ══════════ -->
+    <section id="certificates" class="section certificates">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Pencapaian</span>
+          <h2 class="section-title">Sertifikat &amp; Penghargaan</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="filter-row reveal">
+          <button class="filter-cert active" data-cert-year="all">Semua</button>
+          <button class="filter-cert" data-cert-year="2026">2026</button>
+          <button class="filter-cert" data-cert-year="2025">2025</button>
+          <button class="filter-cert" data-cert-year="2024">2024</button>
+        </div>
+        <div class="cert-grid" id="certGrid"></div>
+      </div>
+    </section>
+
+    <!-- ══════════ CONTACT ══════════ -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <!-- NEW: glassmorphism contact card -->
+        <div class="contact-card reveal">
+          <div class="contact-inner">
+            <span class="section-label">Kontak</span>
+            <h2 class="section-title">Mari <em>Berkolaborasi</em></h2>
+            <div class="divider"></div>
+            <p class="contact-desc">
+              Tertarik bekerja sama, mendiskusikan ide, atau sekadar menyapa?
+              Kotak masuk saya selalu terbuka.
+            </p>
+            <a href="mailto:aviszola04@gmail.com" class="contact-email">
+              <i class="fas fa-envelope"></i> aviszola04@gmail.com
+            </a>
+            <div class="social-links">
+              <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://github.com/aviszola" class="social-icon" aria-label="GitHub"><i
+                  class="fab fa-github"></i></a>
+              <a href="https://www.instagram.com/aviszolaa/" class="social-icon" aria-label="Instagram"><i
+                  class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <!-- NEW: decorative right panel -->
+          <div class="contact-art" aria-hidden="true">
+            <div class="ca-ring ca1"></div>
+            <div class="ca-ring ca2"></div>
+            <div class="ca-quote">Let's build<br>something<br><strong>great.</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- UPDATED: footer -->
+  <footer>
+    <p>&copy; <span id="currentYear"></span> &mdash; Dibuat </span> oleh <strong>Avis Zola Raditya Kurniawan</strong>
+    </p>
+  </footer>
+
+  <!-- NEW: Certificate modal container (populated by JS) -->
+  <div id="certModalRoot"></div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
