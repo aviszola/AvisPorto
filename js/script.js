@@ -238,11 +238,11 @@ const projectsData = [
     grad: 'linear-gradient(140deg,#112244,#1b3a6b)'
   },
   {
-    name: 'Web Portfolio Dinamis',
-    desc: 'Website portfolio interaktif dengan multi-theme dan animasi premium.',
+    name: 'Website Digital Untuk Franchise UMKM (Eazy Chise) ',
+    desc: 'Website digital untuk Franchise UMKM yang menyediakan fitur manajemen produk, transaksi, dan laporan keuangan yang mudah digunakan, dan terintegrasi AI.',
     tags: ['HTML', 'CSS', 'JS'],
     filter: 'web',
-    link: 'https://github.com/aviszola/AvisPorto',
+    link: 'https://github.com/elzidane/eazychise',
     icon: 'fas fa-code',
     grad: 'linear-gradient(140deg,#162a52,#2e5299)'
   }
@@ -287,7 +287,7 @@ renderProjects();
   The modal will display the full image with prev/next gallery navigation.
 */
 const certsData = [
-  { name: 'Pelatihan AI Engineering For Millenial',       org: 'Kemenkomdigi',    year: '2026', img: 'images/SERTIFIKAT AI .img' },
+  { name: 'Pelatihan AI Engineering For Millenial',       org: 'Kemenkomdigi',    year: '2026', img: 'images/SERTIFIKAT AI .jpg' },
   { name: 'Dasar Pemrograman Web Developer',              org: 'Dicoding',        year: '2026', img: 'images/Sertifikat Kompetensi - Dicoding Indonesia_page-0001.jpg' },
   { name: 'Intermediate Assistant Web Developer DEX Jatim',org:'Kemenkomdigi',    year: '2026', img: 'images/Sertifikat_AVIS ZOLA RADITYA KURNIAWAN_Intermediate Assistant Web Developer - DEX - Jawa Timur (1)_page-0001.jpg' },
   { name: 'Front End Web Development',                    org: 'Dicoding',        year: '2026', img: 'images/Sertifikat Kompetensi - Dicoding Indonesia (1)_page-0001.jpg' },
