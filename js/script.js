@@ -238,14 +238,17 @@ const projectsData = [
     grad: 'linear-gradient(140deg,#112244,#1b3a6b)'
   },
   {
-    name: 'Website Digital Untuk Franchise UMKM (Eazy Chise) ',
-    desc: 'Website digital untuk Franchise UMKM yang menyediakan fitur manajemen produk, transaksi, dan laporan keuangan yang mudah digunakan, dan terintegrasi AI.',
-    tags: ['HTML', 'CSS', 'JS'],
-    filter: 'web',
-    link: 'https://github.com/elzidane/eazychise',
-    icon: 'fas fa-code',
-    grad: 'linear-gradient(140deg,#162a52,#2e5299)'
-  }
+  name: 'Website Digital Untuk Franchise UMKM (Eazy Chise)',
+  desc: 'Website digital untuk Franchise UMKM yang menyediakan fitur manajemen produk, transaksi, dan laporan keuangan yang mudah digunakan, dan terintegrasi AI.',
+  tags: ['HTML', 'CSS', 'JS'],
+  filter: 'web',
+  link: 'https://github.com/elzidane/eazychise',
+  demo: 'https://eazychise.vercel.app', 
+  platform: 'vercel', 
+  icon: 'fas fa-code',
+  grad: 'linear-gradient(140deg,#162a52,#2e5299)'
+}
+  
 ];
 
 function renderProjects(filter = 'all') {
@@ -259,10 +262,15 @@ function renderProjects(filter = 'all') {
         <h3>${p.name}</h3>
         <p>${p.desc}</p>
         <div class="tech-tags">${p.tags.map(t => `<span>${t}</span>`).join('')}</div>
+             <p class="project-objective">${p.objective || 'Tujuan proyek: membangun solusi digital yang cepat, efisien, dan mudah diakses.'}</p>
         <div class="project-links">
           <a href="${p.link}" target="_blank" rel="noopener">
             <i class="fab fa-github"></i> GitHub
           </a>
+          ${p.demo ? `
+          <a href="${p.demo}" target="_blank" rel="noopener">
+            <i class="fas fa-globe"></i> Live Demo
+          </a>` : ''}
         </div>
       </div>
     </div>
