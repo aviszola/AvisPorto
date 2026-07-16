@@ -1,249 +1,505 @@
 <!DOCTYPE html>
 <html lang="id" data-theme="light">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Avis Zola Raditya Kurniawan | Mobile Developer</title>
-  <meta name="description" content="Portfolio Avis Zola Raditya Kurniawan - Mobile Developer & RPL Student">
+  <title>Avis Zola Raditya Kurniawan | Flutter Developer</title>
+  <meta name="description" content="Portfolio Avis Zola — Flutter developer yang membangun aplikasi mobile untuk memecahkan masalah nyata. 12+ project, SMK Telkom Malang.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- UPDATED: Cormorant Garamond for display elegance + DM Sans for body -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <meta property="og:title" content="Avis Zola Raditya Kurniawan | Flutter Developer">
+  <meta property="og:description" content="Portfolio Avis Zola — Flutter developer yang membangun aplikasi mobile untuk memecahkan masalah nyata.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/profil.jpg">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-  <!-- NEW: Preloader -->
-  <div id="preloader" class="preloader">
-    <div class="preloader-inner">
-      <div class="preloader-logo">AZ<span>.</span></div>
-      <div class="preloader-track">
-        <div class="preloader-fill" id="preloaderFill"></div>
-      </div>
-      <p class="preloader-hint">Loading portfolio…</p>
-    </div>
+  <a href="#hero" class="skip-link">Skip to content</a>
+
+  <div id="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- ═══ Live Status Widget ═══ -->
+  <div class="live-status" id="liveStatus" aria-label="Live status">
+    <span class="ls-dot"></span>
+    <span class="ls-text">Available</span>
   </div>
 
-  <!-- NEW: Page transition overlay -->
-  <div id="page-transition" class="page-transition"></div>
-
-  <!-- Scroll Progress Bar -->
-  <div id="scroll-progress"></div>
-
-  <!-- UPDATED: Floating controls (theme + back-to-top) -->
+  <!-- ═══ Floating Controls ═══ -->
   <div class="floating-controls">
-    <!-- NEW: 3-mode theme cycle button -->
-    <button id="theme-toggle" class="ctrl-btn" aria-label="Toggle theme" title="Cycle theme">
-      <i class="fas fa-moon"></i>
-    </button>
-    <button id="back-to-top" class="ctrl-btn" aria-label="Back to top">
+    <button id="back-to-top" class="ctrl-btn" aria-label="Kembali ke atas">
       <i class="fas fa-arrow-up"></i>
     </button>
   </div>
 
-  <!-- UPDATED: Navbar with glassmorphism -->
-  <nav id="navbar">
+  <!-- ═══ Navbar ═══ -->
+  <nav id="navbar" role="navigation" aria-label="Navigasi utama">
     <div class="container nav-container">
-      <a href="#home" class="logo">Avis<span class="logo-accent"> Zola</span></a>
+      <a href="#hero" class="logo" aria-label="Beranda">AVIS<span class="logo-accent">ZOLA</span></a>
+
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#who-i-am" class="nav-link">Who I Am</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#certificates" class="nav-link">Sertificate</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#journey" class="nav-link">Journey</a></li>
+        <li><a href="#contact" class="nav-link">Let's Build</a></li>
+        <li><button id="engModeToggle" class="eng-toggle" aria-label="Engineering Mode" title="Engineering Mode (E)">
+            <i class="fas fa-microchip"></i>
+          </button>
+        </li>
       </ul>
-      <!-- NEW: inline theme switcher pills for desktop -->
-      <div class="nav-theme-pills">
-        <button class="t-pill active" data-t="light" title="Light"><i class="fas fa-sun"></i></button>
-        <button class="t-pill" data-t="dark" title="Dark"><i class="fas fa-moon"></i></button>
-        <button class="t-pill" data-t="elegant" title="Elegant"><i class="fas fa-gem"></i></button>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-btn" aria-label="Ganti tema">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
     </div>
 
-    <!-- UPDATED: Smooth slide-down mobile menu -->
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#home" class="mob-link">Home</a>
-      <a href="#about" class="mob-link">About</a>
-      <a href="#projects" class="mob-link">Projects</a>
-      <a href="#certificates" class="mob-link">Sertificate</a>
-      <a href="#contact" class="mob-link">Contact</a>
-      <!-- NEW: theme row inside mobile menu -->
+    <div class="mobile-menu" id="mobileMenu" role="menu">
+      <a href="#who-i-am" class="mob-link" role="menuitem">Who I Am</a>
+      <a href="#projects" class="mob-link" role="menuitem">Projects</a>
+      <a href="#journey" class="mob-link" role="menuitem">Journey</a>
+      <a href="#contact" class="mob-link" role="menuitem">Let's Build</a>
       <div class="mob-theme-row">
         <button class="mob-t active" data-t="light"><i class="fas fa-sun"></i> Light</button>
         <button class="mob-t" data-t="dark"><i class="fas fa-moon"></i> Dark</button>
-        <button class="mob-t" data-t="elegant"><i class="fas fa-gem"></i> Elegant</button>
       </div>
     </div>
   </nav>
 
   <main>
 
-    <!-- ══════════ HERO ══════════ -->
-    <section id="home" class="hero">
-      <!-- NEW: decorative animated mesh blobs -->
-      <div class="hero-mesh" aria-hidden="true">
-        <div class="mesh-blob b1"></div>
-        <div class="mesh-blob b2"></div>
-        <div class="mesh-blob b3"></div>
-      </div>
-
+    <!-- ══════════ 1. HERO ══════════ -->
+    <section id="hero" class="section hero">
       <div class="container hero-container">
+        <div class="hero-visual">
+          <div class="avatar-scene" id="avatarScene">
+            <div class="avatar-ring" id="avatarRing"></div>
+            <div class="avatar-wrapper" id="avatarWrapper">
+              <div class="avatar">
+                <img src="images/profil.jpg" alt="Avis Zola" width="320" height="320" loading="eager">
+              </div>
+              <canvas id="blueprintCanvas" class="blueprint-canvas"></canvas>
+            </div>
+          </div>
+        </div>
+
         <div class="hero-content">
-          <div class="hero-badge"><span class="dot"></span> Available for opportunities</div>
-
-          <h1 class="hero-title">
-            Avis Zola<br>
-            <em class="accent">Raditya K</em>
-          </h1>
-
-          <!-- Typing text with cursor blink -->
-          <div class="hero-role">
-            <span id="typed-text"></span><span class="type-cursor" aria-hidden="true">|</span>
-          </div>
-
-          <p class="hero-desc">
-            Saya merancang dan membangun aplikasi mobile yang elegan, responsif, dan berdampak nyata.
-            Sebagai spesialis Flutter, saya bersemangat menghadirkan pengalaman pengguna yang mulus dan berkesan mulai
-            dari baris kode pertama hingga aplikasi siap digunakan di dunia nyata.
-          </p>
-
+          <p class="hero-statement" id="heroStatement">I build mobile apps that <em class="accent">solve real problems.</em></p>
+          <h1 class="hero-title">Avis Zola Raditya Kurniawan</h1>
+          <p class="hero-subtitle">Flutter Developer &middot; SMK Telkom Malang</p>
           <div class="hero-buttons">
-            <a href="#projects" class="btn btn-primary">
-              <i class="fas fa-code-branch"></i> Lihat Project
+            <a href="#projects" class="btn btn-primary" data-magnetic>
+              <i class="fas fa-arrow-right"></i> Lihat Project
             </a>
-            <a href="#contact" class="btn btn-ghost">
-              <i class="fas fa-paper-plane"></i> Hubungi Saya
+            <a href="#contact" class="btn btn-ghost" data-magnetic>
+              <i class="fas fa-envelope"></i> Hubungi Saya
             </a>
           </div>
-
-          <!-- UPDATED: stats with separator & animated counter -->
           <div class="hero-stats">
             <div class="stat">
-              <div class="stat-val"><span class="stat-number" data-target="12">0</span><span class="stat-plus">+</span>
-              </div>
+              <div class="stat-val"><span class="stat-number" data-target="12">0</span><span class="stat-plus">+</span></div>
               <p>Projects</p>
             </div>
             <div class="stat-sep"></div>
             <div class="stat">
-              <div class="stat-val"><span class="stat-number" data-target="4">0</span><span class="stat-plus">+</span>
-              </div>
+              <div class="stat-val"><span class="stat-number" data-target="4">0</span><span class="stat-plus">+</span></div>
               <p>Certificates</p>
             </div>
             <div class="stat-sep"></div>
             <div class="stat">
-              <div class="stat-val"><span class="stat-number" data-target="3">0</span><span class="stat-plus">+</span>
-              </div>
-              <p>Years Exp.</p>
+              <div class="stat-val"><span class="stat-number" data-target="3">0</span><span class="stat-plus">+</span></div>
+              <p>Years Building</p>
             </div>
           </div>
         </div>
-
-        <!-- UPDATED: avatar with concentric rings and floating pills -->
-        <div class="hero-visual">
-          <div class="avatar-scene">
-            <div class="avatar-ring r1"></div>
-            <div class="avatar-ring r2"></div>
-            <div class="avatar-wrapper" id="heroAvatar">
-              <div class="avatar">
-                <img src="images/profil.jpg" alt="Avis Zola"
-                  onerror="this.src='https://via.placeholder.com/320?text=AZ'">
-              </div>
-              <div class="fp fp1"><i class="fab fa-flutter"></i> Flutter</div>
-              <div class="fp fp2"><i class="fas fa-fire"></i> 10+ Projects</div>
-              <div class="fp fp3"><i class="fab fa-python"></i> Python</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- NEW: animated scroll cue -->
-      <div class="scroll-cue" aria-hidden="true">
-        <div class="sc-mouse">
-          <div class="sc-wheel"></div>
-        </div>
-        <span>scroll</span>
       </div>
     </section>
 
-    <!-- ══════════ ABOUT ══════════ -->
-    <section id="about" class="section about">
+    <!-- ══════════ 2. WHO I AM ══════════ -->
+    <section id="who-i-am" class="section who">
       <div class="container">
-        <div class="about-grid">
-
-          <!-- UPDATED: framed image with decorative accents -->
-          <div class="about-image reveal">
-            <div class="img-frame">
-              <div class="img-box">
-                <img src="images/profil.jpg" alt="About Avis Zola"
-                  onerror="this.src='https://via.placeholder.com/400x500?text=About'">
+        <div class="who-grid">
+          <div class="who-visual reveal">
+            <div class="code-frame">
+              <div class="code-bar">
+                <span class="cb-dot"></span>
+                <span class="cb-dot"></span>
+                <span class="cb-dot"></span>
               </div>
-              <div class="frame-tl"></div>
-              <div class="frame-br"></div>
+<pre class="code-snippet"><span class="kw">class</span> <span class="type">ProblemSolver</span> <span class="kw">extends</span> <span class="type">Developer</span> {
+  <span class="kw">final</span> <span class="type">String</span> mindset = <span class="str">"Think first, build second."</span>;
+
+  <span class="type">Solution</span> solve(<span class="type">Problem</span> p) {
+    <span class="kw">return</span> <span class="type">Solution</span>(
+      research: <span class="kw">true</span>,
+      iteration: <span class="num">3</span>,
+      impact: <span class="str">"real"</span>,
+    );
+  }
+}</pre>
             </div>
           </div>
 
-          <div class="about-text reveal">
-            <span class="section-label">Tentang Saya</span>
-            <h2 class="section-title">Semangat Kode,<br><em>Visi Jelas</em></h2>
+          <div class="who-text reveal">
+            <span class="section-label">Who I Am</span>
+            <h2 class="section-title">Think First,<br><em>Build Second</em></h2>
             <div class="divider"></div>
-            <p>Halo! Saya <strong>Avis Zola Raditya Kurniawan</strong>, siswa aktif jurusan
-              <strong>Rekayasa Perangkat Lunak (RPL)</strong> di <strong>SMK Telkom Malang</strong> yang memiliki minat
-              besar dalam
-              pengembangan aplikasi mobile. Saya percaya teknologi yang baik bukan hanya soal fungsi,
-              tapi juga tentang pengalaman pengguna yang bermakna dan intuitif.
-            </p>
+            <p>Saya percaya software terbaik lahir dari pemahaman masalah yang dalam — bukan dari langsung menulis kode.</p>
+            <p>Saya mulai coding di SMK Telkom Malang dan langsung jatuh hati pada Flutter. Bagi saya, error bukan kegagalan — error adalah petunjuk untuk menulis kode yang lebih baik.</p>
+            <p>Saat ini saya fokus menjadi Flutter developer yang tidak hanya bisa membuat UI, tapi juga memahami arsitektur, pengalaman pengguna, dan bagaimana software bekerja di dunia nyata.</p>
 
-            <p>Sejak pertama belajar coding, saya jatuh cinta pada Flutter karena kemampuannya
-              membangun UI yang indah, responsif, dan lintas platform hanya dengan satu basis kode.
-              Saya terus mengasah kemampuan melalui proyek nyata, lomba, dan pelatihan intensif
-              untuk meningkatkan skill teknis serta pemahaman UI/UX.</p>
-
-            <p>Selain itu, saya juga aktif dalam organisasi <strong>MPK (Majelis Perwakilan Kelas)</strong>
-              yang membantu saya mengembangkan kemampuan kepemimpinan, komunikasi, dan kerja tim.
-              Tujuan saya adalah menjadi pengembang mobile profesional yang mampu memecahkan masalah
-              nyata dan memberi dampak positif.</p>
-
-            <!-- UPDATED: skill chips with icons -->
             <div class="skills-block">
-              <h4 class="skills-label">Tech Stack &amp; Tools</h4>
-              <div class="skill-chips">
-                <span><i class="fab fa-flutter"></i> Flutter</span>
-                <span>Dart</span>
-                <span><i class="fab fa-python"></i> Python</span>
-                <span><i class="fas fa-fire"></i> Firebase</span>
-                <span>REST API</span>
-                <span><i class="fab fa-git-alt"></i> Git</span>
-                <span>Figma</span>
-                <span>Postman</span>
+              <h4 class="skills-label">Tech Stack</h4>
+              <div class="skill-group">
+                <span class="skill-group-label">Frontend</span>
+                <div class="skill-chips">
+                  <span><i class="fab fa-flutter"></i> Flutter</span>
+                  <span>Dart</span>
+                  <span>HTML/CSS</span>
+                </div>
+              </div>
+              <div class="skill-group">
+                <span class="skill-group-label">Backend &amp; Database</span>
+                <div class="skill-chips">
+                  <span><i class="fab fa-python"></i> Python</span>
+                  <span><i class="fas fa-fire"></i> Firebase</span>
+                  <span>REST API</span>
+                </div>
+              </div>
+              <div class="skill-group">
+                <span class="skill-group-label">Tools &amp; Workflow</span>
+                <div class="skill-chips">
+                  <span><i class="fab fa-git-alt"></i> Git</span>
+                  <span>Figma</span>
+                  <span>Postman</span>
+                </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ══════════ PROJECTS ══════════ -->
+    <!-- ══════════ 3. NOW ══════════ -->
+    <section id="now" class="section now">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Now</span>
+          <h2 class="section-title">Currently <em>Building</em></h2>
+          <div class="divider"></div>
+        </div>
+        <div class="now-grid">
+          <div class="now-card reveal">
+            <i class="fas fa-code"></i>
+            <h3>Building</h3>
+            <p>Portfolio v3 &mdash; engineering-focused narrative dengan arsitektur modular.</p>
+          </div>
+          <div class="now-card reveal">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Learning</h3>
+            <p>BLoC state management, GetX, dan clean architecture di Flutter.</p>
+          </div>
+          <div class="now-card reveal">
+            <i class="fas fa-book"></i>
+            <h3>Reading</h3>
+            <p>Flutter documentation, Firebase best practices, dan software architecture patterns.</p>
+          </div>
+          <div class="now-card reveal">
+            <i class="fas fa-bullseye"></i>
+            <h3>Goal</h3>
+            <p>Magang sebagai Flutter developer di perusahaan teknologi untuk menerapkan dan mengembangkan skill.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 4. ENGINEERING CASE STUDY: EazyChise ══════════ -->
+    <section id="featured" class="section featured">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Engineering Case Study</span>
+          <h2 class="section-title">EazyChise: <em>Smart Web Platform</em></h2>
+          <p class="section-subhead">Franchise Management Platform for Growing Culinary Businesses</p>
+          <div class="divider"></div>
+        </div>
+
+        <div class="casestudy reveal">
+          <div class="cs-visual-col">
+            <div class="cs-iframe-wrap">
+              <iframe src="https://eazychise.vercel.app" 
+                      title="EazyChise Live Preview" 
+                      loading="lazy"
+                      width="100%" 
+                      height="600"
+                      style="border:none;"
+                      referrerpolicy="no-referrer"
+                      sandbox="allow-scripts allow-same-origin allow-popups">
+              </iframe>
+              <div class="cs-iframe-footer">
+                <i class="fas fa-globe"></i> 
+                <a href="https://eazychise.vercel.app" target="_blank" rel="noopener">eazychise.vercel.app</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-details">
+
+            <div class="cs-section">
+              <h4 class="cs-label">Problem</h4>
+              <p>Banyak pelaku UMKM ingin mengembangkan bisnis melalui sistem franchise, tetapi proses operasional, monitoring cabang, pengelolaan mitra, dan distribusi informasi masih dilakukan secara manual. Hal ini menyebabkan inefisiensi, data terfragmentasi, dan sulit untuk diskalakan.</p>
+            </div>
+
+            <div class="cs-section">
+              <h4 class="cs-label">Solution</h4>
+              <p>EazyChise hadir sebagai platform manajemen franchise terpusat. Aplikasi ini memungkinkan pemilik bisnis mengelola mitra, memantau performa cabang, dan mendistribusikan informasi secara real-time dalam satu sistem yang terintegrasi.</p>
+            </div>
+
+            <div class="cs-section">
+              <h4 class="cs-label">Tech Stack</h4>
+              <div class="cs-tech-groups">
+                <div class="cs-tech-group">
+                  <span class="cs-tech-label">Frontend</span>
+                  <div class="cs-tech-chips">
+                    <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                  </div>
+                </div>
+                <div class="cs-tech-group">
+                  <span class="cs-tech-label">Backend</span>
+                  <div class="cs-tech-chips">
+                    <span>Firebase</span>
+                  </div>
+                </div>
+                <div class="cs-tech-group">
+                  <span class="cs-tech-label">Database</span>
+                  <div class="cs-tech-chips">
+                    <span>Cloud Firestore</span>
+                  </div>
+                </div>
+                <div class="cs-tech-group">
+                  <span class="cs-tech-label">Auth</span>
+                  <div class="cs-tech-chips">
+                    <span>Firebase Auth</span>
+                  </div>
+                </div>
+                <div class="cs-tech-group">
+                  <span class="cs-tech-label">Storage</span>
+                  <div class="cs-tech-chips">
+                    <span>Firebase Storage</span>
+                  </div>
+                </div>
+                <div class="cs-tech-group">
+                  <span class="cs-tech-label">Tools</span>
+                  <div class="cs-tech-chips">
+                    <span>Git</span><span>Figma</span><span>Postman</span><span>VS Code</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Architecture Diagram -->
+        <div class="cs-arch reveal">
+          <h4 class="cs-label">Architecture</h4>
+          <p class="cs-arch-desc">Platform menggunakan arsitektur web client-server. Browser mengirimkan request HTTP ke Firebase untuk autentikasi, penyimpanan data, dan pengelolaan media. Cloud Firestore bertindak sebagai database utama yang menyinkronkan data franchise secara real-time ke seluruh pengguna. Admin Dashboard mengkonsumsi data yang sama untuk monitoring dan pengelolaan sistem.</p>
+          <div class="arch-diagram" aria-label="System architecture diagram">
+            <div class="arch-node">
+              <i class="fas fa-globe"></i>
+              <span>Browser</span>
+            </div>
+            <div class="arch-conn"><i class="fas fa-arrow-down"></i></div>
+            <div class="arch-node">
+              <i class="fas fa-shield-alt"></i>
+              <span>Firebase Auth</span>
+            </div>
+            <div class="arch-split">
+              <div class="arch-split-col">
+                <div class="arch-conn"><i class="fas fa-arrow-down"></i></div>
+                <div class="arch-node">
+                  <i class="fas fa-database"></i>
+                  <span>Cloud Firestore</span>
+                </div>
+              </div>
+              <div class="arch-split-col">
+                <div class="arch-conn"><i class="fas fa-arrow-down"></i></div>
+                <div class="arch-node">
+                  <i class="fas fa-cloud-upload-alt"></i>
+                  <span>Firebase Storage</span>
+                </div>
+              </div>
+            </div>
+            <div class="arch-conn"><i class="fas fa-arrow-down"></i></div>
+            <div class="arch-node arch-node--admin">
+              <i class="fas fa-tachometer-alt"></i>
+              <span>Admin Dashboard</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Challenge + Result side by side -->
+        <div class="cs-grid-2 reveal">
+          <div class="cs-section cs-card-dark">
+            <h4 class="cs-label">Challenge</h4>
+            <ul class="cs-list">
+              <li>Mendesain struktur data yang efisien untuk sistem web yang digunakan oleh berbagai jenis pengguna (admin, mitra, cabang).</li>
+              <li>Mengelola autentikasi dan role untuk membedakan akses setiap level pengguna.</li>
+              <li>Menjaga konsistensi dan keamanan data antar modul yang saling terhubung.</li>
+              <li>Merancang antarmuka yang mudah dipahami oleh pemilik bisnis non-teknis.</li>
+              <li>Menyiapkan arsitektur frontend yang modular agar fitur baru dapat ditambahkan tanpa konflik.</li>
+            </ul>
+          </div>
+          <div class="cs-section cs-card-accent">
+            <h4 class="cs-label">Result</h4>
+            <ul class="cs-list">
+              <li>Prototype platform web untuk manajemen franchise berhasil dibangun.</li>
+              <li>Seluruh proses bisnis franchise terpusat dalam satu dashboard.</li>
+              <li>Struktur modular memungkinkan penambahan fitur tanpa mengganggu komponen yang sudah ada.</li>
+              <li>Sistem autentikasi dan role-based access telah terimplementasi.</li>
+              <li>Menunjukkan kemampuan end-to-end: analisis kebutuhan, desain UI, frontend, hingga integrasi backend.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Lessons Learned -->
+        <div class="cs-lessons reveal">
+          <h4 class="cs-label">Lessons Learned</h4>
+          <div class="lessons-grid">
+            <div class="lesson-item">
+              <span class="lesson-num">01</span>
+              <p>Pentingnya memahami kebutuhan pengguna bisnis sebelum membangun fitur. Fitur yang tidak sesuai kebutuhan hanya menambah kompleksitas.</p>
+            </div>
+            <div class="lesson-item">
+              <span class="lesson-num">02</span>
+              <p>Modular architecture mempermudah debugging dan kolaborasi pengembangan. Setiap modul independen dan mudah diuji secara terpisah.</p>
+            </div>
+            <div class="lesson-item">
+              <span class="lesson-num">03</span>
+              <p>Struktur database yang baik mengurangi kompleksitas sistem secara signifikan — terutama saat sistem sudah memiliki banyak modul yang saling terhubung.</p>
+            </div>
+            <div class="lesson-item">
+              <span class="lesson-num">04</span>
+              <p>Konsistensi kode dan dokumentasi yang baik mempercepat proses pengembangan dan memudahkan developer lain untuk berkontribusi.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-links reveal">
+          <a href="https://github.com/elzidane/eazychise" class="btn btn-primary" target="_blank" rel="noopener">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
+          <a href="https://eazychise.vercel.app" class="btn btn-ghost" target="_blank" rel="noopener">
+            <i class="fas fa-globe"></i> Live Demo
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════ 5. ENGINEERING DASHBOARD ══════════ -->
+    <section id="dashboard" class="section dashboard">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Engineering</span>
+          <h2 class="section-title">At a <em>Glance</em></h2>
+          <div class="divider"></div>
+        </div>
+        <div class="dash-grid">
+          <div class="dash-card reveal">
+            <i class="fas fa-folder-open"></i>
+            <div class="dash-num" data-count="12">0</div>
+            <p>Projects</p>
+          </div>
+          <div class="dash-card reveal">
+            <i class="fab fa-github"></i>
+            <div class="dash-num" id="ghRepoCount" data-count="8">0</div>
+            <p>Repositories</p>
+          </div>
+          <div class="dash-card reveal">
+            <i class="fas fa-certificate"></i>
+            <div class="dash-num" data-count="4">0</div>
+            <p>Certificates</p>
+          </div>
+          <div class="dash-card reveal">
+            <i class="fas fa-cubes"></i>
+            <div class="dash-num" data-count="15">0</div>
+            <p>Technologies</p>
+          </div>
+          <div class="dash-card reveal">
+            <i class="fas fa-clock"></i>
+            <div class="dash-num" data-count="3">0</div>
+            <p>Years Exp.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 6. DEVELOPMENT WORKFLOW ══════════ -->
+    <section id="workflow" class="section workflow-sec">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">My Engineering</span>
+          <h2 class="section-title">Development <em>Workflow</em></h2>
+          <div class="divider"></div>
+        </div>
+        <div class="wf-flow">
+          <div class="wf-step reveal">
+            <div class="wf-step-icon"><i class="fas fa-lightbulb"></i></div>
+            <span>Idea</span>
+          </div>
+          <div class="wf-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="wf-step reveal">
+            <div class="wf-step-icon"><i class="fas fa-search"></i></div>
+            <span>Research</span>
+          </div>
+          <div class="wf-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="wf-step reveal">
+            <div class="wf-step-icon"><i class="fas fa-pencil-ruler"></i></div>
+            <span>Design</span>
+          </div>
+          <div class="wf-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="wf-step reveal">
+            <div class="wf-step-icon"><i class="fas fa-terminal"></i></div>
+            <span>Develop</span>
+          </div>
+          <div class="wf-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="wf-step reveal">
+            <div class="wf-step-icon"><i class="fas fa-vial"></i></div>
+            <span>Test</span>
+          </div>
+          <div class="wf-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="wf-step reveal">
+            <div class="wf-step-icon"><i class="fas fa-rocket"></i></div>
+            <span>Deploy</span>
+          </div>
+          <div class="wf-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="wf-step reveal">
+            <div class="wf-step-icon"><i class="fas fa-sync-alt"></i></div>
+            <span>Iterate</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 7. OTHER PROJECTS ══════════ -->
     <section id="projects" class="section projects">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-label">Portfolio</span>
-          <h2 class="section-title">Project Pilihan</h2>
+          <span class="section-label">Projects</span>
+          <h2 class="section-title">Other Things <em>I've Built</em></h2>
           <div class="divider"></div>
         </div>
-        <!-- UPDATED: filter pill row -->
         <div class="filter-row reveal">
-          <button class="filter-btn active" data-filter="all">Semua</button>
+          <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="flutter">Flutter</button>
           <button class="filter-btn" data-filter="web">Web</button>
           <button class="filter-btn" data-filter="ai">AI/ML</button>
@@ -252,53 +508,159 @@
       </div>
     </section>
 
-    <!-- ══════════ CERTIFICATES ══════════ -->
-    <section id="certificates" class="section certificates">
+    <!-- ══════════ 8. GITHUB INTEGRATION ══════════ -->
+    <section id="github" class="section github-sec">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-label">Pencapaian</span>
-          <h2 class="section-title">Sertifikat &amp; Penghargaan</h2>
+          <span class="section-label">Open Source</span>
+          <h2 class="section-title">Latest from <em>GitHub</em></h2>
+          <div class="divider"></div>
+        </div>
+        <div class="gh-grid" id="ghGrid">
+          <div class="gh-loading">Loading repositories...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 9. SOFTWARE PRINCIPLES ══════════ -->
+    <section id="principles-ext" class="section principles-ext">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Philosophy</span>
+          <h2 class="section-title">Software Should <em>Be</em></h2>
+          <div class="divider"></div>
+        </div>
+        <div class="princ-ext-grid">
+          <div class="princ-ext-card reveal">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Reliable</h3>
+            <p class="princ-ext-desc">Software harus bisa dipercaya. Tidak crash di saat kritis.</p>
+          </div>
+          <div class="princ-ext-card reveal">
+            <i class="fas fa-tools"></i>
+            <h3>Maintainable</h3>
+            <p class="princ-ext-desc">Kode yang bersih dan terstruktur untuk tim masa depan.</p>
+          </div>
+          <div class="princ-ext-card reveal">
+            <i class="fas fa-expand-arrows-alt"></i>
+            <h3>Scalable</h3>
+            <p class="princ-ext-desc">Tumbuh tanpa menambah kompleksitas secara eksponensial.</p>
+          </div>
+          <div class="princ-ext-card reveal">
+            <i class="fas fa-universal-access"></i>
+            <h3>Accessible</h3>
+            <p class="princ-ext-desc">Untuk semua orang, terlepas dari keterbatasan.</p>
+          </div>
+          <div class="princ-ext-card reveal">
+            <i class="fas fa-bolt"></i>
+            <h3>Fast</h3>
+            <p class="princ-ext-desc">Kecepatan adalah fitur. Setiap milidetik berarti.</p>
+          </div>
+          <div class="princ-ext-card reveal">
+            <i class="fas fa-leaf"></i>
+            <h3>Simple</h3>
+            <p class="princ-ext-desc">Kesederhanaan adalah kecanggihan tertinggi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 10. MY JOURNEY ══════════ -->
+    <section id="journey" class="section journey">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">My Journey</span>
+          <h2 class="section-title">How I <em>Got Here</em></h2>
+          <div class="divider"></div>
+        </div>
+        <div class="timeline">
+          <div class="timeline-progress" id="timelineProgress"></div>
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-year">2024</span>
+              <h4>Mulai Belajar Coding</h4>
+              <p>Mulai tertarik dengan dunia programming. Belajar dasar Python dan HTML secara otodidak.</p>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-year">2025</span>
+              <h4>SMK Telkom Malang — RPL</h4>
+              <p>Masuk jurusan Rekayasa Perangkat Lunak. Mulai serius belajar Flutter. Bergabung dengan organisasi MPK.</p>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-year">2026</span>
+              <h4>12+ Project &amp; 4+ Sertifikat</h4>
+              <p>Membangun berbagai aplikasi mobile dengan Flutter. Mendapat sertifikasi AI Engineering, Web Development, dan Front End.</p>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot tl-dot--future"></div>
+            <div class="tl-content">
+              <span class="tl-year tl-year--future">2027</span>
+              <h4>Target: Software Engineering Intern</h4>
+              <p>Magang di perusahaan teknologi. Ingin terus belajar dan berkontribusi pada produk yang berdampak nyata.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 11. ACHIEVEMENTS ══════════ -->
+    <section id="achievements" class="section achievements">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Achievements</span>
+          <h2 class="section-title">Validations &amp;<br><em>Certificates</em></h2>
           <div class="divider"></div>
         </div>
         <div class="filter-row reveal">
-          <button class="filter-cert active" data-cert-year="all">Semua</button>
+          <button class="filter-cert active" data-cert-year="all">All</button>
           <button class="filter-cert" data-cert-year="2026">2026</button>
           <button class="filter-cert" data-cert-year="2025">2025</button>
           <button class="filter-cert" data-cert-year="2024">2024</button>
         </div>
         <div class="cert-grid" id="certGrid"></div>
       </div>
+      <div id="certModalRoot"></div>
     </section>
 
-    <!-- ══════════ CONTACT ══════════ -->
+    <!-- ══════════ 12. LET'S BUILD ══════════ -->
     <section id="contact" class="section contact">
       <div class="container">
-        <!-- NEW: glassmorphism contact card -->
         <div class="contact-card reveal">
           <div class="contact-inner">
-            <span class="section-label">Kontak</span>
-            <h2 class="section-title">Mari <em>Berkolaborasi</em></h2>
+            <span class="section-label">Let's Build</span>
+            <h2 class="section-title">Build Something <em>Great</em></h2>
             <div class="divider"></div>
             <p class="contact-desc">
-              Tertarik bekerja sama, mendiskusikan ide, atau sekadar menyapa?
-              Kotak masuk saya selalu terbuka.
+              I'm currently open for internship and junior developer opportunities, especially in mobile development. If you have a project, an idea, or just want to discuss technology — I'd love to hear from you.
             </p>
-            <a href="mailto:aviszola04@gmail.com" class="contact-email">
-              <i class="fas fa-envelope"></i> aviszola04@gmail.com
-            </a>
-            <div class="social-links">
-              <a href="https://www.linkedin.com/in/avis-zola-raditya-kurniawan-407388377" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-              <a href="https://github.com/aviszola" class="social-icon" aria-label="GitHub"><i
-                  class="fab fa-github"></i></a>
-              <a href="https://www.instagram.com/aviszolaa/" class="social-icon" aria-label="Instagram"><i
-                  class="fab fa-instagram"></i></a>
+            <div class="contact-channels">
+              <a href="https://github.com/aviszola" class="channel" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+              <a href="https://www.linkedin.com/in/avis-zola-raditya-kurniawan-407388377" class="channel" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+              <a href="mailto:aviszola04@gmail.com" class="channel"><i class="fas fa-envelope"></i> Email</a>
+              <a href="#" class="channel" onclick="alert('Resume — coming soon!')"><i class="fas fa-file-alt"></i> Resume</a>
             </div>
-          </div>
-          <!-- NEW: decorative right panel -->
-          <div class="contact-art" aria-hidden="true">
-            <div class="ca-ring ca1"></div>
-            <div class="ca-ring ca2"></div>
-            <div class="ca-quote">Let's build<br>something<br><strong>great.</strong></div>
+            <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                <input type="text" id="formName" name="name" placeholder="Nama" required aria-label="Nama">
+              </div>
+              <div class="form-group">
+                <input type="email" id="formEmail" name="email" placeholder="Email" required aria-label="Email">
+              </div>
+              <div class="form-group">
+                <textarea id="formMessage" name="message" rows="3" placeholder="Pesan" required aria-label="Pesan"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-submit" data-magnetic>
+                <i class="fas fa-paper-plane"></i> <span>Kirim Pesan</span>
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -306,16 +668,29 @@
 
   </main>
 
-  <!-- UPDATED: footer -->
   <footer>
-    <p>&copy; <span id="currentYear"></span> &mdash; Dibuat </span> oleh <strong>Avis Zola Raditya Kurniawan</strong>
-    </p>
+    <div class="container footer-inner">
+      <p>&copy; <span id="currentYear"></span> Avis Zola Raditya Kurniawan</p>
+      <p class="footer-tagline">Built with Flutter mindset, HTML, CSS &amp; JavaScript</p>
+    </div>
   </footer>
 
-  <!-- NEW: Certificate modal container (populated by JS) -->
-  <div id="certModalRoot"></div>
+  <!-- ═══ Command Palette ═══ -->
+  <div class="palette-overlay" id="paletteOverlay" role="dialog" aria-label="Command Palette">
+    <div class="palette">
+      <div class="palette-input-wrap">
+        <i class="fas fa-search palette-search-icon"></i>
+        <input type="text" class="palette-input" id="paletteInput" placeholder="Search commands..." autofocus>
+        <span class="palette-hint" id="paletteHint">Type a command</span>
+      </div>
+      <ul class="palette-list" id="paletteList"></ul>
+    </div>
+  </div>
 
+  <!-- ═══ Engineering Mode Grid ═══ -->
+  <div class="eng-grid-overlay" id="engGridOverlay" aria-hidden="true"></div>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
   <script src="js/script.js"></script>
 </body>
-
 </html>
