@@ -41,14 +41,14 @@ export default function Hero() {
 
         <div className="hero-content">
           <BlurText
-            text="Saya senang membangun produk yang benar-benar digunakan orang, bukan sekadar menarik di Figma."
+            text="Simple things should be simple, complex things should be possible."
             as="p"
             className="hero-statement"
             delay={30}
             duration={400}
           />
           <h1 className="hero-title">Avis Zola Raditya Kurniawan</h1>
-          <p className="hero-subtitle">Flutter Developer &middot; SMK Telkom Malang</p>
+          <p className="hero-subtitle">Mobile App & Frontend Developer &middot; SMK Telkom Malang</p>
           <div className="hero-buttons">
             <MagneticBtn as="a" href="#projects" strength={0.2}>
               <span className="btn btn-primary">
@@ -64,7 +64,7 @@ export default function Hero() {
           <div className="hero-stats" ref={statsRef}>
             <div className="stat">
               <div className="stat-val"><span className="stat-number" data-target="12">0</span><span className="stat-plus">+</span></div>
-              <p>Projects</p>
+              <p>Project </p>
             </div>
             <div className="stat-sep"></div>
             <div className="stat">
