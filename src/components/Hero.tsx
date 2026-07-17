@@ -64,7 +64,7 @@ export default function Hero() {
           <div className="hero-stats" ref={statsRef}>
             <div className="stat">
               <div className="stat-val"><span className="stat-number" data-target="12">0</span><span className="stat-plus">+</span></div>
-              <p>Projects</p>
+              <p>Project </p>
             </div>
             <div className="stat-sep"></div>
             <div className="stat">
