@@ -8,7 +8,7 @@ interface BlurTextProps {
   duration?: number
 }
 
-export default function BlurText({ text, as: Tag = 'h1', className = '', delay = 80, duration = 400 }: BlurTextProps) {
+export default function BlurText({ text, as: _as = 'h1', className = '', delay = 80, duration = 400 }: BlurTextProps) {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

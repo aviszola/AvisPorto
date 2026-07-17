@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { projects } from '../data/projects'
 
-function esc(str: string) { return str.replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m] || m) }
+// function _esc(str: string) { return str.replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m] || m) }
 
 export default function Projects() {
   const [filter, setFilter] = useState('all')
