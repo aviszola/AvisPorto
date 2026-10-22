@@ -9,7 +9,7 @@ interface BlurTextProps {
 }
 
 export default function BlurText({ text, as: Tag = 'h1', className = '', delay = 80, duration = 400 }: BlurTextProps) {
-  const containerRef = useRef<HTMLElement | null>(null)
+  const containerRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const el = containerRef.current
@@ -29,7 +29,7 @@ export default function BlurText({ text, as: Tag = 'h1', className = '', delay =
   }, [text, delay, duration])
 
   return (
-    <Tag ref={containerRef as never} className={className} role="heading" aria-label={text}>
+    <Tag ref={containerRef as never} className={className} aria-label={text}>
       {Array.from(text).map((char, i) => (
         <span key={i} className="bt-char" style={{ display: char === ' ' ? 'inline' : 'inline-block', whiteSpace: char === ' ' ? 'pre' : undefined }}>
           {char}

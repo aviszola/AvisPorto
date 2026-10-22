@@ -25,7 +25,11 @@ export default function Projects() {
           {list.map(p => (
             <div key={p.name} className="project-card">
               <div className="project-thumb">
-                {p.image ? <img src={p.image} alt={p.name} /> : <i className={`fas ${p.icon}`}></i>}
+                {p.image ? (
+                  <img src={p.image} alt={p.name} loading="lazy" decoding="async" />
+                ) : (
+                  <i className={`fas ${p.icon}`} aria-hidden="true"></i>
+                )}
               </div>
               <div className="project-info">
                 <h3>{p.name}</h3>

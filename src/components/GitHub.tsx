@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import SkeletonCard from './bits/SkeletonCard'
 
 const USERNAME = 'aviszola'
 
@@ -21,21 +22,6 @@ export default function GitHub() {
       .catch(() => setRepos([]))
   }, [])
 
-  if (!repos) {
-    return (
-      <section id="github" className="section github-sec">
-        <div className="container">
-          <div className="section-head">
-            <span className="section-label">Open Source</span>
-            <h2 className="section-title">Dari <em>GitHub</em></h2>
-            <div className="divider"></div>
-          </div>
-          <div className="gh-grid"><div className="gh-loading">Loading repositories...</div></div>
-        </div>
-      </section>
-    )
-  }
-
   return (
     <section id="github" className="section github-sec">
       <div className="container">
@@ -45,7 +31,11 @@ export default function GitHub() {
           <div className="divider"></div>
         </div>
         <div className="gh-grid">
-          {repos.length === 0 ? (
+          {!repos ? (
+            Array.from({ length: 4 }).map((_, i) => (
+              <SkeletonCard key={i} />
+            ))
+          ) : repos.length === 0 ? (
             <div className="gh-fallback">
               <i className="fas fa-github"></i> Unable to load repos.{' '}
               <a href={`https://github.com/${USERNAME}`} target="_blank" rel="noopener">View GitHub →</a>

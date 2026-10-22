@@ -9,7 +9,11 @@ export function useActiveSection() {
       const sy = window.scrollY + 140
       let cur = ''
       sections.forEach(s => { if (sy >= s.offsetTop) cur = s.id })
-      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur))
+      links.forEach(a => {
+        const isActive = a.getAttribute('href') === '#' + cur
+        a.classList.toggle('active', isActive)
+        a.toggleAttribute('data-active', isActive)
+      })
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })
