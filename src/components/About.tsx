@@ -13,7 +13,7 @@ export default function About() {
                 <span className="cb-dot"></span>
               </div>
 <pre className="code-snippet">{`class AvisZola {
-  final String role = "Flutter Developer";
+  final String role = "Mobile & Frontend Developer";
   final String school = "SMK Telkom Malang";
 
   Project build(Problem p) {
@@ -29,11 +29,11 @@ export default function About() {
 
           <RevealFx className="who-text">
             <span className="section-label">About</span>
-            <h2 className="section-title">Mulai dari <em>Kenapa</em>,<br />bukan dari <em>Kode</em></h2>
+            <h2 className="section-title">Di Balik <em>Setiap Kode</em><br />Ada Sebuah <em>Tujuan.</em></h2>
             <div className="divider"></div>
-            <p>Saya mulai belajar pemrograman saat masuk SMK Telkom Malang, jurusan Rekayasa Perangkat Lunak. Awalnya hanya iseng mengikuti teman, tetapi saat pertama kali melihat kode Flutter berjalan di ponsel saya sendiri — rasanya berbeda. Sejak saat itu, saya terus belajar, gagal, dan belajar lagi.</p>
-            <p>Bagi saya, software engineering bukan sekadar kemampuan menulis kode. Lebih kepada bagaimana cara berpikir. Saya lebih suka berdiskusi dengan pengguna terlebih dahulu, memahami masalahnya, baru mencari solusi. Terkadang saya menghabiskan waktu berhari-hari hanya untuk berpikir, padahal kodenya hanya beberapa baris — dan itu wajar.</p>
-            <p>Saat ini saya fokus di Flutter. Target saya sederhana: membuat aplikasi yang benar-benar berguna, bukan hanya terlihat bagus di screenshot.</p>
+            <p>Saya mulai mengenal dunia pemrograman saat masuk SMK Telkom Malang. Awalnya hanya karena penasaran mengikuti teman, tetapi semuanya berubah ketika aplikasi pertama yang saya buat berhasil berjalan di layar ponsel. Sejak saat itu, rasa penasaran saya berkembang menjadi semangat untuk terus belajar dan membangun sesuatu yang bermanfaat.</p>
+            <p>Seiring waktu, saya menikmati dua dunia sekaligus. Flutter mengajarkan saya cara membangun pengalaman mobile yang nyaman, sementara React membuka cara berpikir baru dalam menciptakan antarmuka web yang cepat, interaktif, dan modern. Dari situlah saya menyadari bahwa teknologi hanyalah alat. Yang paling penting adalah bagaimana sebuah produk mampu memberikan manfaat bagi orang yang menggunakannya.</p>
+            <p>Saya senang mengubah ide menjadi produk nyata, mulai dari merancang antarmuka, memikirkan alur pengguna, hingga menghubungkan frontend dengan backend melalui REST API. Saat ini saya terus mengembangkan kemampuan sebagai Frontend Developer dan Mobile Developer, sambil mengeksplorasi teknologi baru untuk membangun aplikasi yang tidak hanya menarik secara visual, tetapi juga mudah digunakan dan memberikan pengalaman yang bermakna.</p>
 
             <div className="skills-block">
               <h4 className="skills-label">Tech Stack</h4>

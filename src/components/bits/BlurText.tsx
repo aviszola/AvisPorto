@@ -29,12 +29,12 @@ export default function BlurText({ text, as: _as = 'h1', className = '', delay =
   }, [text, delay, duration])
 
   return (
-    <div ref={containerRef} className={className} role="heading" aria-label={text}>
+    <Tag ref={containerRef as never} className={className} role="heading" aria-label={text}>
       {Array.from(text).map((char, i) => (
         <span key={i} className="bt-char" style={{ display: char === ' ' ? 'inline' : 'inline-block', whiteSpace: char === ' ' ? 'pre' : undefined }}>
           {char}
         </span>
       ))}
-    </div>
+    </Tag>
   )
 }
