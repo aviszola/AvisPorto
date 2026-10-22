@@ -63,7 +63,12 @@ export default function FeaturedTabs() {
           <div className="cs-visual-col">
             <div className="cs-screenshot">
               <a href="https://eazychise.vercel.app" target="_blank" rel="noopener" aria-label="Buka EazyChise di tab baru">
-                <img src="/images/eazychise-dashboard.png" alt="EazyChise Dashboard" />
+                <img
+                  src="/images/eazychise-dashboard.png"
+                  alt="EazyChise Dashboard"
+                  loading="lazy"
+                  decoding="async"
+                />
               </a>
             </div>
           </div>

@@ -33,7 +33,13 @@ export default function Hero() {
           <Spotlight size={300}>
             <div className="avatar-scene">
               <div className="avatar-wrapper">
-                <img src="/images/profil.jpg" alt="Avis Zola" width="320" height="320" />
+                <img
+                  src="/images/profil.jpg"
+                  alt="Foto Profil Avis Zola"
+                  width="320"
+                  height="320"
+                  decoding="async"
+                />
               </div>
             </div>
           </Spotlight>
